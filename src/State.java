@@ -1,6 +1,6 @@
 public interface State {
     void turnOn();
-    void tunrOff();
+    void turnOff();
     void internetOn();
     void internetOff();
     void fileRequest();

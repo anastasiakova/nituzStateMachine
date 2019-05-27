@@ -5,7 +5,7 @@ public class Off implements State {
     }
 
     @java.lang.Override
-    public void tunrOff() {
+    public void turnOff() {
 
     }
 
