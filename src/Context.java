@@ -1,84 +1,168 @@
 public class Context {
-    //off
-    private Off off;
 
-    //on:
-    private On on;
-    //Connection region
-    private Online online;
-    private Offline offline;
+    public State currentInternetConnection;
+    public State currentOffOn;
 
-    //Download superstate
-    private Download download;
-    private Wait wait;
-    private DownloadProc downloadProc;
-    private Recover recover;
-
-    //download management region
-    private DownloadIdle downloadIdle;
-    private OutOfDisk outOfDisk;
-
-    //download requests management
-    private DownloadRequests downloadRequests;
-
-    //Movie player
-    private IdlePlayer idlePlayer;
-    private Play play;
-    private Pause pause;
-
-    public Off getOff() {
-        return off;
+    public Context() {
+        this.currentInternetConnection = new Offline(this);
+        this.currentOffOn = new Off(this);
     }
 
-    public On getOn() {
-        return on;
+    void turnOn() {
+        currentOffOn.turnOn();
     }
 
-    public Online getOnline() {
-        return online;
+    void turnOff() {
+        currentOffOn.turnOff();
     }
 
-    public Offline getOffline() {
-        return offline;
+    void internetOn() {
+        currentInternetConnection.internetOn();
     }
 
-    public Download getDownload() {
-        return download;
+    void internetOff() {
+        currentInternetConnection.internetOff();
     }
 
-    public Wait getWait() {
-        return wait;
+    void fileRequest() {
+        currentOffOn.fileRequest();
     }
 
-    public DownloadProc getDownloadProc() {
-        return downloadProc;
+    void downloadAborted() {
+        currentOffOn.downloadAborted();
     }
 
-    public Recover getRecover() {
-        return recover;
+    void downloadError() {
+        currentOffOn.downloadError();
     }
 
-    public DownloadIdle getDownloadIdle() {
-        return downloadIdle;
+    void errorFixed() {
+        currentOffOn.errorFixed();
     }
 
-    public OutOfDisk getOutOfDisk() {
-        return outOfDisk;
+    void movieOn() {
+        currentOffOn.movieOn();
     }
 
-    public DownloadRequests getDownloadRequests() {
-        return downloadRequests;
+    void restartMovie() {
+        currentOffOn.restartMovie();
     }
 
-    public IdlePlayer getIdlePlayer() {
-        return idlePlayer;
+    void holdMovie() {
+        currentOffOn.holdMovie();
     }
 
-    public Play getPlay() {
-        return play;
+    void movieOff() {
+        currentOffOn.movieOff();
     }
 
-    public Pause getPause() {
-        return pause;
+    void resume() {
+        currentOffOn.resume();
+    }
+
+    void downloadFinished() {
+        currentOffOn.downloadFinished();
     }
 }
+
+//    //off
+//    private Off off;
+//
+//    //on:
+//    private On on;
+//    //Connection region
+//    private Online online;
+//    private Offline offline;
+//
+//    //Download superstate
+//    private Download download;
+//    private Wait wait;
+//    private DownloadProc downloadProc;
+//    private Recover recover;
+//
+//    //download management region
+//    private DownloadIdle downloadIdle;
+//    private OutOfDisk outOfDisk;
+//
+//    //download requests management
+//    private DownloadRequests downloadRequests;
+//
+//    //Movie player
+//    private IdlePlayer idlePlayer;
+//    private Play play;
+//    private Pause pause;
+
+
+
+//        this.off = new Off(this);
+//        this.on = new On(this);
+//        this.online = new Online(this);
+//        this.offline = new Offline(this);
+//        this.download = new Download(this);
+//        this.wait = new Wait(this);
+//        this.downloadProc = new DownloadProc(this);
+//        this.recover = new Recover(this);
+//        this.downloadIdle = new DownloadIdle(this);
+//        this.outOfDisk = new OutOfDisk(this);
+//        this.downloadRequests = new DownloadRequests(this);
+//        this.idlePlayer = new IdlePlayer(this);
+//        this.play = new Play(this);
+//        this.pause = new Pause(this);
+
+
+//    public Off getOff() {
+//        return off;
+//    }
+//
+//    public On getOn() {
+//        return on;
+//    }
+//
+//    public Online getOnline() {
+//        return online;
+//    }
+//
+//    public Offline getOffline() {
+//        return offline;
+//    }
+//
+//    public Download getDownload() {
+//        return download;
+//    }
+//
+//    public Wait getWait() {
+//        return wait;
+//    }
+//
+//    public DownloadProc getDownloadProc() {
+//        return downloadProc;
+//    }
+//
+//    public Recover getRecover() {
+//        return recover;
+//    }
+//
+//    public DownloadIdle getDownloadIdle() {
+//        return downloadIdle;
+//    }
+//
+//    public OutOfDisk getOutOfDisk() {
+//        return outOfDisk;
+//    }
+//
+//    public DownloadRequests getDownloadRequests() {
+//        return downloadRequests;
+//    }
+//
+//    public IdlePlayer getIdlePlayer() {
+//        return idlePlayer;
+//    }
+//
+//    public Play getPlay() {
+//        return play;
+//    }
+//
+//    public Pause getPause() {
+//        return pause;
+//    }
+

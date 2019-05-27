@@ -1,4 +1,4 @@
-public class Off implements State {
+public class DownloadRequests implements State {
     @java.lang.Override
     public void turnOn() {
 
@@ -67,5 +67,10 @@ public class Off implements State {
     @java.lang.Override
     public void downloadFinished() {
 
+    }
+
+    @Override
+    public State setAsCurrent() {
+        return null;
     }
 }

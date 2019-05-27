@@ -1,7 +1,17 @@
 public class Off implements State {
+    Context context;
+
+    public Off(Context context) {
+        this.context = context;
+    }
+
     @java.lang.Override
     public void turnOn() {
-
+        State on = new On(this.context);
+        Boolean inOnline = context.currentInternetConnection instanceof Online;
+        if(inOnline) {
+            on.setAsCurrent();
+        }
     }
 
     @java.lang.Override
@@ -67,5 +77,10 @@ public class Off implements State {
     @java.lang.Override
     public void downloadFinished() {
 
+    }
+
+    @Override
+    public State setAsCurrent() {
+        return null;
     }
 }

@@ -1,4 +1,10 @@
-public class Off implements State {
+public class On implements State {
+    Context context;
+
+    public On(Context context) {
+        this.context = context;
+    }
+
     @java.lang.Override
     public void turnOn() {
 
@@ -6,7 +12,8 @@ public class Off implements State {
 
     @java.lang.Override
     public void turnOff() {
-
+        State off = new Off(this.context);
+        off.setAsCurrent();
     }
 
     @java.lang.Override
@@ -67,5 +74,10 @@ public class Off implements State {
     @java.lang.Override
     public void downloadFinished() {
 
+    }
+
+    @Override
+    public State setAsCurrent() {
+        return null;
     }
 }
