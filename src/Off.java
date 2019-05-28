@@ -7,11 +7,15 @@ public class Off implements State {
 
     @java.lang.Override
     public void turnOn() {
-        State on = new On(this.context);
-        Boolean inOnline = context.currentInternetConnection instanceof Online;
-        if(inOnline) {
-            on.setAsCurrent();
-        }
+        //State on = new InternetOnilne(this.context);
+        //Boolean inOnline = context.currentInternetConnection instanceof Online;
+       // if(inOnline) {
+         //   on.setAsCurrent();
+        //}
+        if(context.currentInternetConnection instanceof InternetOnilne)
+            context.setMachineCurrnetModeState(context.getMachineOn());
+        else
+            System.out.println("THERE IS NO CONNECTION!!! ");
     }
 
     @java.lang.Override
@@ -77,10 +81,5 @@ public class Off implements State {
     @java.lang.Override
     public void downloadFinished() {
 
-    }
-
-    @Override
-    public State setAsCurrent() {
-        return null;
     }
 }

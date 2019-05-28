@@ -69,8 +69,4 @@ public class Pause implements State {
 
     }
 
-    @Override
-    public State setAsCurrent() {
-        return null;
-    }
 }

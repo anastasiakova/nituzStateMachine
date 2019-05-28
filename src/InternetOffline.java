@@ -1,17 +1,23 @@
-public class Online implements State {
+public class InternetOffline implements State {
+    Context context;
+
+    public InternetOffline(Context context) {
+        this.context = context;
+    }
+
     @java.lang.Override
     public void turnOn() {
-
+        context.internetOn();
     }
 
     @java.lang.Override
     public void turnOff() {
-
+        context.internetOn();
     }
 
     @java.lang.Override
     public void internetOn() {
-
+        context.setInternetState(context.getInternetOnline());
     }
 
     @java.lang.Override
@@ -69,8 +75,5 @@ public class Online implements State {
 
     }
 
-    @Override
-    public State setAsCurrent() {
-        return null;
-    }
+
 }

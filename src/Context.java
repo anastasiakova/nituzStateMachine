@@ -1,68 +1,105 @@
 public class Context {
-
+    //currents
     public State currentInternetConnection;
-    public State currentOffOn;
+    public State machineCurrnetMode;
+
+    //states
+    public State internetOffline;
+    public State internetOnline;
+    public State machineOn;
+    public State machineOff;
 
     public Context() {
-        this.currentInternetConnection = new Offline(this);
-        this.currentOffOn = new Off(this);
+        internetOffline = new InternetOffline(this);
+        internetOnline = new InternetOnilne(this);
+        machineOn = new On(this);
+        machineOff = new Off(this);
+        setInternetState(internetOffline);
+        setMachineCurrnetModeState(machineOff);
+        this.machineCurrnetMode = new Off(this);
     }
-
     void turnOn() {
-        currentOffOn.turnOn();
+        currentInternetConnection.turnOn();
+        machineCurrnetMode.turnOn();
     }
 
     void turnOff() {
-        currentOffOn.turnOff();
+        currentInternetConnection.turnOff(); machineCurrnetMode.turnOff();
     }
 
     void internetOn() {
         currentInternetConnection.internetOn();
+        machineCurrnetMode.internetOn();
     }
 
     void internetOff() {
         currentInternetConnection.internetOff();
+        machineCurrnetMode.internetOff();
     }
 
     void fileRequest() {
-        currentOffOn.fileRequest();
+        machineCurrnetMode.fileRequest();
     }
 
     void downloadAborted() {
-        currentOffOn.downloadAborted();
+        machineCurrnetMode.downloadAborted();
     }
 
     void downloadError() {
-        currentOffOn.downloadError();
+        machineCurrnetMode.downloadError();
     }
 
     void errorFixed() {
-        currentOffOn.errorFixed();
+        machineCurrnetMode.errorFixed();
     }
 
     void movieOn() {
-        currentOffOn.movieOn();
+        machineCurrnetMode.movieOn();
     }
 
     void restartMovie() {
-        currentOffOn.restartMovie();
+        machineCurrnetMode.restartMovie();
     }
 
     void holdMovie() {
-        currentOffOn.holdMovie();
+        machineCurrnetMode.holdMovie();
     }
 
     void movieOff() {
-        currentOffOn.movieOff();
+        machineCurrnetMode.movieOff();
     }
 
     void resume() {
-        currentOffOn.resume();
+        machineCurrnetMode.resume();
     }
 
     void downloadFinished() {
-        currentOffOn.downloadFinished();
+        machineCurrnetMode.downloadFinished();
     }
+
+
+    public void setInternetState(State state){
+        if(currentInternetConnection != null)
+            System.out.println("exit "+currentInternetConnection.getClass().getName()+" state");
+        currentInternetConnection = state;
+        System.out.println("enter "+state.getClass().getName()+" state");
+    }
+
+    public State getInternetOffline() { return internetOffline; }
+
+    public State getInternetOnline() { return internetOnline; }
+
+    public State getMachineOn() { return machineOn; }
+
+    public State getMachineOff() { return machineOff; }
+
+    public void setMachineCurrnetModeState(State state){
+        if(machineCurrnetMode != null)
+            System.out.println("exit "+machineCurrnetMode.getClass().getName()+" state");
+        machineCurrnetMode = state;
+        System.out.println("enter "+state.getClass().getName()+" state");
+    }
+
 }
 
 //    //off

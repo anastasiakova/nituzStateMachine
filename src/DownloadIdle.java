@@ -69,8 +69,4 @@ public class DownloadIdle implements State {
 
     }
 
-    @Override
-    public State setAsCurrent() {
-        return null;
-    }
 }

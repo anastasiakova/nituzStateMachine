@@ -1,5 +1,17 @@
 public class On implements State {
     Context context;
+    //currents
+    public State currentDownloadRequest;
+    public State downloadCurrent;
+    public State palyerCurrent;
+
+    //states
+    public State internetOffline;
+    public State internetOnline;
+    public State machineOn;
+    public State machineOff;
+
+
 
     public On(Context context) {
         this.context = context;
@@ -12,8 +24,7 @@ public class On implements State {
 
     @java.lang.Override
     public void turnOff() {
-        State off = new Off(this.context);
-        off.setAsCurrent();
+        context.setMachineCurrnetModeState(context.getMachineOff());
     }
 
     @java.lang.Override
@@ -23,7 +34,7 @@ public class On implements State {
 
     @java.lang.Override
     public void internetOff() {
-
+        context.setMachineCurrnetModeState(context.getMachineOff());
     }
 
     @java.lang.Override
@@ -76,8 +87,4 @@ public class On implements State {
 
     }
 
-    @Override
-    public State setAsCurrent() {
-        return null;
-    }
 }

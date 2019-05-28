@@ -1,4 +1,5 @@
 public interface State {
+
     void turnOn();
     void turnOff();
     void internetOn();
@@ -16,5 +17,4 @@ public interface State {
     //Added events:
     void downloadFinished();
 
-    State setAsCurrent();
 }

@@ -69,8 +69,4 @@ public class DownloadProc implements State {
 
     }
 
-    @Override
-    public State setAsCurrent() {
-        return null;
-    }
 }

@@ -1,18 +1,17 @@
-public class Offline implements State {
+public class InternetOnilne implements State {
     Context context;
 
-    public Offline(Context context) {
+    public InternetOnilne(Context context){
         this.context = context;
     }
 
     @java.lang.Override
     public void turnOn() {
-
     }
 
     @java.lang.Override
     public void turnOff() {
-
+        context.setInternetState(context.getInternetOffline());
     }
 
     @java.lang.Override
@@ -22,7 +21,7 @@ public class Offline implements State {
 
     @java.lang.Override
     public void internetOff() {
-
+        context.setInternetState(context.getInternetOffline());
     }
 
     @java.lang.Override
@@ -75,8 +74,4 @@ public class Offline implements State {
 
     }
 
-    @Override
-    public State setAsCurrent() {
-        return null;
-    }
 }

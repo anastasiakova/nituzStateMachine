@@ -69,8 +69,4 @@ public class OutOfDisk implements State {
 
     }
 
-    @Override
-    public State setAsCurrent() {
-        return null;
-    }
 }

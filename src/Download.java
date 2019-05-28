@@ -69,8 +69,4 @@ public class Download implements State {
 
     }
 
-    @Override
-    public State setAsCurrent() {
-        return null;
-    }
 }

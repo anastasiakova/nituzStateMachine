@@ -68,9 +68,4 @@ public class Recover implements State {
     public void downloadFinished() {
 
     }
-
-    @Override
-    public State setAsCurrent() {
-        return null;
-    }
 }

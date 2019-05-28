@@ -68,9 +68,4 @@ public class Wait implements State {
     public void downloadFinished() {
 
     }
-
-    @Override
-    public State setAsCurrent() {
-        return null;
-    }
 }
