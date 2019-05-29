@@ -1,4 +1,11 @@
 public class IdlePlayer implements State {
+
+    State on;
+
+    public IdlePlayer(State on) {
+        this.on = on;
+    }
+
     @java.lang.Override
     public void turnOn() {
 
@@ -41,7 +48,7 @@ public class IdlePlayer implements State {
 
     @java.lang.Override
     public void movieOn() {
-
+        if(Contex.current != null && )
     }
 
     @java.lang.Override

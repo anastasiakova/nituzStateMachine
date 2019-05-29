@@ -1,4 +1,5 @@
 public class Context {
+    private static int cuurDownloadStatus;
     //currents
     public State currentInternetConnection;
     public State machineCurrnetMode;
@@ -100,6 +101,9 @@ public class Context {
         System.out.println("enter "+state.getClass().getName()+" state");
     }
 
+    public static int getCurrDownloadStatus() {
+        return cuurDownloadStatus;
+    }
 }
 
 //    //off
