@@ -1,4 +1,10 @@
 public class DownloadRequests implements State {
+    public On on;
+
+    public DownloadRequests(On on){
+        this.on = on;
+    }
+
     @java.lang.Override
     public void turnOn() {
 
@@ -21,7 +27,7 @@ public class DownloadRequests implements State {
 
     @java.lang.Override
     public void fileRequest() {
-
+        On.queueSize++;
     }
 
     @java.lang.Override
@@ -67,6 +73,11 @@ public class DownloadRequests implements State {
     @java.lang.Override
     public void downloadFinished() {
 
+    }
+
+    @Override
+    public void entry() {
+        System.out.println("enter "+ this.getClass().getName() + " state");
     }
 
 }
