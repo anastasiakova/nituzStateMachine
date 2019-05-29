@@ -1,5 +1,5 @@
 public class On implements State {
-    Context context;
+    public Context context;
     //currents
     public State currentDownloadRequest;
     public State downloadCurrent;
@@ -17,6 +17,7 @@ public class On implements State {
     public State play;
 
     public static int movieTime;
+    public static int queueSize;
 
     public On(Context context) {
 
@@ -34,15 +35,16 @@ public class On implements State {
         setPalyerCurrent(this.idlePlayer);
 
         movieTime = 0;
+        queueSize = 0;
     }
 
 
     //Set currents
-    public void setCurrentDownloadRequest(State currentDownloadRequest) { this.currentDownloadRequest = currentDownloadRequest;}
+    public void setCurrentDownloadRequest(State currentDownloadRequest) { this.currentDownloadRequest = currentDownloadRequest; currentDownloadRequest.entry();}
 
-    public void setDownloadCurrent(State downloadCurrent) {this.downloadCurrent = downloadCurrent;}
+    public void setDownloadCurrent(State downloadCurrent) {this.downloadCurrent = downloadCurrent; downloadCurrent.entry();}
 
-    public void setPalyerCurrent(State palyerCurrent) {this.palyerCurrent = palyerCurrent;}
+    public void setPalyerCurrent(State palyerCurrent) {this.palyerCurrent = palyerCurrent; palyerCurrent.entry();}
 
 
     //Get states
@@ -59,6 +61,12 @@ public class On implements State {
     public State getPause() {return pause;}
 
     public State getPlay() {return play;}
+
+    public State getCurrentDownloadRequest() {return currentDownloadRequest;}
+
+    public State getDownloadCurrent() {return downloadCurrent;}
+
+    public State getPalyerCurrent() {return palyerCurrent;}
 
     public static int getMovieTime() {return movieTime;}
 
@@ -150,6 +158,11 @@ public class On implements State {
         currentDownloadRequest.downloadFinished();
         downloadCurrent.downloadFinished();
         palyerCurrent.downloadFinished();
+    }
+
+    @Override
+    public void entry() {
+
     }
 
 }

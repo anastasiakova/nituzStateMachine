@@ -10,6 +10,8 @@ public class Context {
     public State machineOn;
     public State machineOff;
 
+    public static int diskSize;
+
     public Context() {
         internetOffline = new InternetOffline(this);
         internetOnline = new InternetOnilne(this);
@@ -18,6 +20,8 @@ public class Context {
         setInternetState(internetOffline);
         setMachineCurrnetModeState(machineOff);
         this.machineCurrnetMode = new Off(this);
+
+        diskSize = 0;
     }
     void turnOn() {
         currentInternetConnection.turnOn();
@@ -83,6 +87,7 @@ public class Context {
         if(currentInternetConnection != null)
             System.out.println("exit "+currentInternetConnection.getClass().getName()+" state");
         currentInternetConnection = state;
+        state.entry();
         System.out.println("enter "+state.getClass().getName()+" state");
     }
 
