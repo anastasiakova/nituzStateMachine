@@ -1,4 +1,12 @@
+import java.util.Random;
+
 public class Recover implements State {
+
+    public DownloadProc downloadProc;
+    private boolean isErrorFixed = false;
+    public Recover(DownloadProc downloadProc){
+        this.downloadProc = downloadProc;
+    }
     @java.lang.Override
     public void turnOn() {
 
@@ -36,7 +44,9 @@ public class Recover implements State {
 
     @java.lang.Override
     public void errorFixed() {
-
+        isErrorFixed = true;
+        System.out.println("exit "+ this.getClass().getName() + " state");
+        downloadProc.setDownloadProcCurrent(downloadProc.getDownload());
     }
 
     @java.lang.Override
@@ -67,5 +77,29 @@ public class Recover implements State {
     @java.lang.Override
     public void downloadFinished() {
 
+    }
+
+    @Override
+    public void entry() {
+        System.out.println("enter "+ this.getClass().getName() + " state");
+        isErrorFixed = false;
+        Thread thread = new Thread(){
+            public void run()
+            {
+                try {
+                    Thread.sleep(3000);
+                    if(!isErrorFixed && downloadProc.on.context.machineOn == downloadProc.on.context.machineCurrnetMode){
+                        downloadProc.setDownloadProcCurrent(downloadProc.getDownload());
+                        System.out.println("exit "+ downloadProc.getClass().getName() + " state");
+                        downloadProc.on.setDownloadCurrent(downloadProc.on.getDownloadIdle());
+                        Context.updatePoints(-1);
+                    }
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+
+        thread.start();
     }
 }
