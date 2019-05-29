@@ -1,6 +1,9 @@
+import java.util.Random;
+
 public class Play implements State {
     On on;
     Thread playMovie;
+    boolean isCurrent;
 
     public Play(On on) {
         this.on = on;
@@ -13,7 +16,7 @@ public class Play implements State {
 
     @java.lang.Override
     public void turnOff() {
-
+        isCurrent = false;
     }
 
     @java.lang.Override
@@ -25,6 +28,7 @@ public class Play implements State {
     public void internetOff() {
         //kill entry thrade
         on.setPalyerCurrent(on.getPause());
+        isCurrent = false;
     }
 
     @java.lang.Override
@@ -36,12 +40,14 @@ public class Play implements State {
     public void downloadAborted() {
         //kill entry thrade
         on.setPalyerCurrent(on.getIdlePlayer());
+        isCurrent = false;
     }
 
     @java.lang.Override
     public void downloadError() {
         //kill entry thrade
         on.setPalyerCurrent(on.getPause());
+        isCurrent = false;
     }
 
     @java.lang.Override
@@ -63,12 +69,14 @@ public class Play implements State {
     public void holdMovie() {
         //kill entry thrade
         on.setPalyerCurrent(on.getPause());
+        isCurrent = false;
     }
 
     @java.lang.Override
     public void movieOff() {
         //kill entry thrade
         on.setPalyerCurrent(on.getIdlePlayer());
+        isCurrent = false;
     }
 
     @java.lang.Override
@@ -80,11 +88,19 @@ public class Play implements State {
     public void downloadFinished() {
         //kill entry thrade
         on.setPalyerCurrent(on.getIdlePlayer());
+        isCurrent = false;
     }
 
     @Override
     public void entry() {
-        // TO DO
-        //{do update movie time
+        isCurrent = true;
+        playMovie = new Thread(() -> {
+            while(isCurrent) { //while this is the current state. Changing the state in On will terminate this thread.
+                on.movieTime += 1;
+            }
+        });	//Anonymous class ends here
+
+//Starting anonymous thread
+        playMovie.start();
     }
 }
