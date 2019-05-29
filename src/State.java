@@ -16,5 +16,5 @@ public interface State {
 
     //Added events:
     void downloadFinished();
-
+    void entry();
 }

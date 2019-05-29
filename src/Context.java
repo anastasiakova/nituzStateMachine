@@ -1,5 +1,5 @@
 public class Context {
-    private static int cuurDownloadStatus;
+    private static int cuurDownloadStatus = 0;
     //currents
     public State currentInternetConnection;
     public State machineCurrnetMode;

@@ -1,8 +1,8 @@
 public class IdlePlayer implements State {
 
-    State on;
+    On on;
 
-    public IdlePlayer(State on) {
+    public IdlePlayer(On on) {
         this.on = on;
     }
 
@@ -48,7 +48,12 @@ public class IdlePlayer implements State {
 
     @java.lang.Override
     public void movieOn() {
-        if(Contex.current != null && )
+        if(Context.getCurrDownloadStatus() >= 0){
+            on.movieTime = 0;
+            Play play = on.getPlay();
+            on.setPalyerCurrent();
+
+        }
     }
 
     @java.lang.Override

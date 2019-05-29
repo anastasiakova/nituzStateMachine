@@ -1,4 +1,10 @@
 public class Play implements State {
+    State on;
+
+    public Play(State on) {
+        this.on = on;
+    }
+
     @java.lang.Override
     public void turnOn() {
 
