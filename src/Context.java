@@ -20,9 +20,8 @@ public class Context {
         machineOff = new Off(this);
         setInternetState(internetOffline);
         setMachineCurrnetModeState(machineOff);
-        this.machineCurrnetMode = new Off(this);
 
-        diskSize = 0;
+        diskSize = 100;
     }
     void turnOn() {
         currentInternetConnection.turnOn();
@@ -86,11 +85,8 @@ public class Context {
 
 
     public void setInternetState(State state){
-        if(currentInternetConnection != null)
-            System.out.println("exit "+currentInternetConnection.getClass().getName()+" state");
         currentInternetConnection = state;
         state.entry();
-        System.out.println("enter "+state.getClass().getName()+" state");
     }
 
     public State getInternetOffline() { return internetOffline; }
@@ -102,11 +98,8 @@ public class Context {
     public State getMachineOff() { return machineOff; }
 
     public void setMachineCurrnetModeState(State state){
-        if(machineCurrnetMode != null)
-            System.out.println("exit "+machineCurrnetMode.getClass().getName()+" state");
         machineCurrnetMode = state;
         state.entry();
-        System.out.println("enter "+state.getClass().getName()+" state");
     }
 
     public static int getCurrDownloadStatus() {
@@ -118,6 +111,10 @@ public class Context {
         if( Context.points < 0){
             Context.points = 0;
         }
+    }
+
+    public void setDiskSize(int diskSize) {
+        Context.diskSize = diskSize;
     }
 }
 

@@ -64,6 +64,7 @@ public class DownloadProc implements State {
         Context.updatePoints(-1);
         current.downloadAborted();
         current = download;
+        Context.currDownloadStatus = 0;
     }
 
     @java.lang.Override
@@ -108,6 +109,7 @@ public class DownloadProc implements State {
         on.downloadFinished();
         Context.updatePoints(1);
         Context.diskSize -= On.fileSize;
+        Context.currDownloadStatus = 0;
     }
 
     @Override

@@ -81,6 +81,7 @@ public class Download implements State {
     @Override
     public void entry() {
         System.out.println("enter "+ this.getClass().getName() + " state");
+        isDownloading = true;
         Thread thread = new Thread(){
             public void run()
             {
@@ -94,6 +95,7 @@ public class Download implements State {
                     try {
                         sleep( 2000/(long)downloadSpeed);
                         Context.currDownloadStatus += 10;
+                        System.out.println(Context.currDownloadStatus);
                         if(Context.getCurrDownloadStatus()>= 100){
                             isDownloading = false;
                             downloadFinished();

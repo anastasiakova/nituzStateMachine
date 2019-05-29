@@ -31,9 +31,10 @@ public class On implements State {
         this.pause = new Pause(this);
         this.play = new Play(this);
 
-        setCurrentDownloadRequest(this.downloadRequest);
-        setDownloadCurrent(this.downloadIdle);
-        setPalyerCurrent(this.idlePlayer);
+
+        currentDownloadRequest = downloadRequest;
+        downloadCurrent = downloadIdle;
+        palyerCurrent = idlePlayer;
 
         movieTime = 0;
         queueSize = 0;
@@ -89,7 +90,7 @@ public class On implements State {
         currentDownloadRequest.turnOff();
         palyerCurrent.turnOff();
         downloadCurrent.turnOff();
-
+        System.out.println("exit "+ this.getClass().getName() + " state");
         context.setMachineCurrnetModeState(context.getMachineOff());
     }
 
@@ -180,6 +181,7 @@ public class On implements State {
 
     @Override
     public void entry() {
+        System.out.println("enter "+ this.getClass().getName() + " state");
         currentDownloadRequest.entry();
         downloadCurrent.entry();
         palyerCurrent.entry();

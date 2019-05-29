@@ -82,4 +82,9 @@ public class Off implements State {
     public void downloadFinished() {
 
     }
+
+    @Override
+    public void entry() {
+        System.out.println("enter "+ this.getClass().getName() + " state");
+    }
 }
