@@ -36,6 +36,8 @@ public class On implements State {
         movieTime = 0;
     }
 
+
+    //Set currents
     public void setCurrentDownloadRequest(State currentDownloadRequest) { this.currentDownloadRequest = currentDownloadRequest;}
 
     public void setDownloadCurrent(State downloadCurrent) {this.downloadCurrent = downloadCurrent;}
@@ -43,6 +45,22 @@ public class On implements State {
     public void setPalyerCurrent(State palyerCurrent) {this.palyerCurrent = palyerCurrent;}
 
 
+    //Get states
+    public State getDownloadRequest() {return downloadRequest;}
+
+    public State getDownloadIdle() {return downloadIdle;}
+
+    public State getOutOfDisk() {return outOfDisk;}
+
+    public State getDownloadProc() {return downloadProc;}
+
+    public State getIdlePlayer() {return idlePlayer;}
+
+    public State getPause() {return pause;}
+
+    public State getPlay() {return play;}
+
+    public static int getMovieTime() {return movieTime;}
 
     @java.lang.Override
     public void turnOn() { }
