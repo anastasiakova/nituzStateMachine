@@ -26,9 +26,8 @@ public class Play implements State {
 
     @java.lang.Override
     public void internetOff() {
-        //kill entry thrade
-        on.setPalyerCurrent(on.getPause());
         System.out.println("exit "+ this.getClass().getName() + " state");
+        on.setPalyerCurrent(on.getPause());
         isCurrent = false;
     }
 
@@ -39,17 +38,16 @@ public class Play implements State {
 
     @java.lang.Override
     public void downloadAborted() {
-        //kill entry thrade
-        on.setPalyerCurrent(on.getIdlePlayer());
         System.out.println("exit "+ this.getClass().getName() + " state");
+        on.setPalyerCurrent(on.getIdlePlayer());
         isCurrent = false;
     }
 
     @java.lang.Override
     public void downloadError() {
         //kill entry thrade
-        on.setPalyerCurrent(on.getPause());
         System.out.println("exit "+ this.getClass().getName() + " state");
+        on.setPalyerCurrent(on.getPause());
         isCurrent = false;
     }
 
@@ -71,16 +69,16 @@ public class Play implements State {
     @java.lang.Override
     public void holdMovie() {
         //kill entry thrade
-        on.setPalyerCurrent(on.getPause());
         System.out.println("exit "+ this.getClass().getName() + " state");
+        on.setPalyerCurrent(on.getPause());
         isCurrent = false;
     }
 
     @java.lang.Override
     public void movieOff() {
         //kill entry thrade
-        on.setPalyerCurrent(on.getIdlePlayer());
         System.out.println("exit "+ this.getClass().getName() + " state");
+        on.setPalyerCurrent(on.getIdlePlayer());
         isCurrent = false;
     }
 
@@ -91,9 +89,8 @@ public class Play implements State {
 
     @java.lang.Override
     public void downloadFinished() {
-        //kill entry thrade
-        on.setPalyerCurrent(on.getIdlePlayer());
         System.out.println("exit "+ this.getClass().getName() + " state");
+        on.setPalyerCurrent(on.getIdlePlayer());
         isCurrent = false;
     }
 
