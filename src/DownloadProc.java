@@ -11,7 +11,7 @@ public class DownloadProc implements State {
         this.on = on;
         this.download = new Download(this);
         this.wait = new Wait(this);
-        this.recover = new Wait(this);
+        this.recover = new Recover(this);
         this.current = this.download;
     }
 
