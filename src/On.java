@@ -86,7 +86,6 @@ public class On implements State {
 
     @java.lang.Override
     public void turnOff() {
-        //TODO shutdown all working threads
         currentDownloadRequest.turnOff();
         palyerCurrent.turnOff();
         downloadCurrent.turnOff();

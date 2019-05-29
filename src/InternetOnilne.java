@@ -10,9 +10,7 @@ public class InternetOnilne implements State {
     }
 
     @java.lang.Override
-    public void turnOff() {
-        context.setInternetState(context.getInternetOffline());
-    }
+    public void turnOff() {}
 
     @java.lang.Override
     public void internetOn() {
@@ -21,6 +19,7 @@ public class InternetOnilne implements State {
 
     @java.lang.Override
     public void internetOff() {
+        System.out.println("exit "+ this.getClass().getName() + " state");
         context.setInternetState(context.getInternetOffline());
     }
 
@@ -72,6 +71,11 @@ public class InternetOnilne implements State {
     @java.lang.Override
     public void downloadFinished() {
 
+    }
+
+    @Override
+    public void entry() {
+        System.out.println("enter "+ this.getClass().getName() + " state");
     }
 
 }

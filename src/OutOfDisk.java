@@ -85,7 +85,7 @@ public class OutOfDisk implements State {
             Thread.sleep(4000);
             if(onState.fileSize > onState.context.diskSize){
                 On.queueSize--;
-                //TODO address points here!
+                Context.updatePoints(-1);
                 onState.setDownloadCurrent(onState.getDownloadIdle());
             } else{
                 if(onState.context.internetOnline == onState.context.currentInternetConnection){
