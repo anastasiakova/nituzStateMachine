@@ -8,7 +8,6 @@ public class DownloadIdle implements State {
 
     public DownloadIdle(On onState){
         this.onState = onState;
-
     }
 
 
@@ -20,7 +19,6 @@ public class DownloadIdle implements State {
 
     @java.lang.Override
     public void internetOn() {
-
     }
 
     @java.lang.Override
@@ -92,6 +90,7 @@ public class DownloadIdle implements State {
                             onState.setDownloadCurrent(onState.getOutOfDisk());
                         } else {
                             onState.setDownloadCurrent(onState.getDownloadProc());
+                            On.queueSize--;
                         }
                         break;
                     }

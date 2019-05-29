@@ -1,7 +1,17 @@
+import java.util.Random;
+
 public class OutOfDisk implements State {
+
+    public On onState;
+
+    public OutOfDisk(On onState){
+        this.onState = onState;
+    }
+
+
     @java.lang.Override
     public void turnOn() {
-
+        entry();
     }
 
     @java.lang.Override
@@ -67,6 +77,28 @@ public class OutOfDisk implements State {
     @java.lang.Override
     public void downloadFinished() {
 
+    }
+
+    @Override
+    public void entry() {
+        try {
+            Thread.sleep(4000);
+            if(onState.fileSize > onState.context.diskSize){
+                On.queueSize--;
+                //TODO address points here!
+                onState.setDownloadCurrent(onState.getDownloadIdle());
+            } else{
+                if(onState.context.internetOnline == onState.context.currentInternetConnection){
+                    onState.setDownloadCurrent(onState.getDownloadProc());
+                    On.queueSize--;
+                }
+                else{
+                    onState.setDownloadCurrent(onState.getDownloadIdle());
+                }
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
 }
