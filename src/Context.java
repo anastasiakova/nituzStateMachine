@@ -29,7 +29,8 @@ public class Context {
     }
 
     void turnOff() {
-        currentInternetConnection.turnOff(); machineCurrnetMode.turnOff();
+        currentInternetConnection.turnOff();
+        machineCurrnetMode.turnOff();
     }
 
     void internetOn() {
@@ -103,6 +104,7 @@ public class Context {
         if(machineCurrnetMode != null)
             System.out.println("exit "+machineCurrnetMode.getClass().getName()+" state");
         machineCurrnetMode = state;
+        state.entry();
         System.out.println("enter "+state.getClass().getName()+" state");
     }
 

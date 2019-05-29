@@ -18,6 +18,7 @@ public class On implements State {
 
     public static int movieTime;
     public static int queueSize;
+    public static int fileSize;
 
     public On(Context context) {
 
@@ -36,6 +37,7 @@ public class On implements State {
 
         movieTime = 0;
         queueSize = 0;
+        fileSize = 0;
     }
 
 
@@ -76,12 +78,19 @@ public class On implements State {
     @java.lang.Override
     public void turnOff() {
         //TODO shutdown all working threads
+        currentDownloadRequest.turnOff();
+        palyerCurrent.turnOff();
+        downloadCurrent.turnOff();
 
         context.setMachineCurrnetModeState(context.getMachineOff());
     }
 
     @java.lang.Override
-    public void internetOn() { }
+    public void internetOn() {
+        currentDownloadRequest.internetOn();
+        downloadCurrent.internetOn();
+        palyerCurrent.internetOn();
+    }
 
     @java.lang.Override
     public void internetOff() {
@@ -162,7 +171,9 @@ public class On implements State {
 
     @Override
     public void entry() {
-
+        currentDownloadRequest.entry();
+        downloadCurrent.entry();
+        palyerCurrent.entry();
     }
 
 }
