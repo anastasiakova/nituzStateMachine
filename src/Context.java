@@ -1,6 +1,6 @@
 public class Context {
-    private static int cuurDownloadStatus = 0;
-    private static int points = 0;
+    public static int currDownloadStatus = 0;
+    public static int points = 0;
     //currents
     public State currentInternetConnection;
     public State machineCurrnetMode;
@@ -110,7 +110,7 @@ public class Context {
     }
 
     public static int getCurrDownloadStatus() {
-        return cuurDownloadStatus;
+        return currDownloadStatus;
     }
 
     public static void updatePoints(int points){
