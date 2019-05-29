@@ -174,8 +174,9 @@ public class On implements State {
     @java.lang.Override
     public void downloadFinished() {
         currentDownloadRequest.downloadFinished();
-        downloadCurrent.downloadFinished();
         palyerCurrent.downloadFinished();
+        //calling currentDownload.downloadFinished() will result in an infinite loop!!!
+
     }
 
     @Override
