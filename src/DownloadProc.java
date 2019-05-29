@@ -1,7 +1,28 @@
 public class DownloadProc implements State {
+    On on;
+    public State current;
+    //states
+    public State download;
+    public State wait;
+    public State recover;
+
+
+    public DownloadProc(On on) {
+        this.on = on;
+        this.download = new Download(this);
+        this.wait = new Wait(this);
+        this.recover = new Wait(this);
+        this.current = this.download;
+    }
+
+    public void setDownloadProcCurrent(State downloadProcCurrent) {
+        this.current = downloadProcCurrent;
+        this.current.entry();
+    }
+
     @java.lang.Override
     public void turnOn() {
-
+        this.entry();
     }
 
     @java.lang.Override
@@ -69,4 +90,9 @@ public class DownloadProc implements State {
 
     }
 
+    @Override
+    public void entry() {
+        System.out.println("enter "+ this.getClass().getName() + " state");
+        this.current.entry();
+    }
 }
