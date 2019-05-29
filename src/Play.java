@@ -1,7 +1,8 @@
 public class Play implements State {
-    State on;
+    On on;
+    Thread playMovie;
 
-    public Play(State on) {
+    public Play(On on) {
         this.on = on;
     }
 
@@ -22,7 +23,8 @@ public class Play implements State {
 
     @java.lang.Override
     public void internetOff() {
-
+        //kill entry thrade
+        on.setPalyerCurrent(on.getPause());
     }
 
     @java.lang.Override
@@ -32,12 +34,14 @@ public class Play implements State {
 
     @java.lang.Override
     public void downloadAborted() {
-
+        //kill entry thrade
+        on.setPalyerCurrent(on.getIdlePlayer());
     }
 
     @java.lang.Override
     public void downloadError() {
-
+        //kill entry thrade
+        on.setPalyerCurrent(on.getPause());
     }
 
     @java.lang.Override
@@ -52,17 +56,19 @@ public class Play implements State {
 
     @java.lang.Override
     public void restartMovie() {
-
+        on.movieTime = 0;
     }
 
     @java.lang.Override
     public void holdMovie() {
-
+        //kill entry thrade
+        on.setPalyerCurrent(on.getPause());
     }
 
     @java.lang.Override
     public void movieOff() {
-
+        //kill entry thrade
+        on.setPalyerCurrent(on.getIdlePlayer());
     }
 
     @java.lang.Override
@@ -72,7 +78,13 @@ public class Play implements State {
 
     @java.lang.Override
     public void downloadFinished() {
-
+        //kill entry thrade
+        on.setPalyerCurrent(on.getIdlePlayer());
     }
 
+    @Override
+    public void entry() {
+        // TO DO
+        //{do update movie time
+    }
 }

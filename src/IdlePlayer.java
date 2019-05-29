@@ -48,11 +48,11 @@ public class IdlePlayer implements State {
 
     @java.lang.Override
     public void movieOn() {
-        if(Context.getCurrDownloadStatus() >= 0){
+        if(Context.getCurrDownloadStatus() >= 20){
             on.movieTime = 0;
-            Play play = on.getPlay();
-            on.setPalyerCurrent();
-
+            State play = on.getPlay();
+            on.setPalyerCurrent(play);
+            play.entry();
         }
     }
 
@@ -78,6 +78,11 @@ public class IdlePlayer implements State {
 
     @java.lang.Override
     public void downloadFinished() {
+
+    }
+
+    @Override
+    public void entry() {
 
     }
 }

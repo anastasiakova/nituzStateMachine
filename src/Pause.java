@@ -1,4 +1,10 @@
 public class Pause implements State {
+    On on;
+
+    public Pause(On on) {
+        this.on = on;
+    }
+
     @java.lang.Override
     public void turnOn() {
 
@@ -11,8 +17,9 @@ public class Pause implements State {
 
     @java.lang.Override
     public void internetOn() {
-
-    }
+        State play = on.getPlay();
+        on.setPalyerCurrent(play);
+        play.entry();    }
 
     @java.lang.Override
     public void internetOff() {
@@ -26,7 +33,7 @@ public class Pause implements State {
 
     @java.lang.Override
     public void downloadAborted() {
-
+        on.setPalyerCurrent(on.getIdlePlayer());
     }
 
     @java.lang.Override
@@ -36,8 +43,9 @@ public class Pause implements State {
 
     @java.lang.Override
     public void errorFixed() {
-
-    }
+        State play = on.getPlay();
+        on.setPalyerCurrent(play);
+        play.entry();    }
 
     @java.lang.Override
     public void movieOn() {
@@ -56,17 +64,23 @@ public class Pause implements State {
 
     @java.lang.Override
     public void movieOff() {
-
+        on.setPalyerCurrent(on.getIdlePlayer());
     }
 
     @java.lang.Override
     public void resume() {
-
+        State play = on.getPlay();
+        on.setPalyerCurrent(play);
+        play.entry();
     }
 
     @java.lang.Override
     public void downloadFinished() {
-
+        on.setPalyerCurrent(on.getIdlePlayer());
     }
 
+    @Override
+    public void entry() {
+
+    }
 }
