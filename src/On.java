@@ -42,11 +42,20 @@ public class On implements State {
 
 
     //Set currents
-    public void setCurrentDownloadRequest(State currentDownloadRequest) { this.currentDownloadRequest = currentDownloadRequest; currentDownloadRequest.entry();}
+    public void setCurrentDownloadRequest(State currentDownloadRequest) {
+        this.currentDownloadRequest = currentDownloadRequest;
+        currentDownloadRequest.entry();
+    }
 
-    public void setDownloadCurrent(State downloadCurrent) {this.downloadCurrent = downloadCurrent; downloadCurrent.entry();}
+    public void setDownloadCurrent(State downloadCurrent) {
+        this.downloadCurrent = downloadCurrent;
+        downloadCurrent.entry();
+    }
 
-    public void setPalyerCurrent(State palyerCurrent) {this.palyerCurrent = palyerCurrent; palyerCurrent.entry();}
+    public void setPalyerCurrent(State palyerCurrent) {
+        this.palyerCurrent = palyerCurrent;
+        palyerCurrent.entry();
+    }
 
 
     //Get states

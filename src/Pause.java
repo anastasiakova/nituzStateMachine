@@ -18,8 +18,9 @@ public class Pause implements State {
     @java.lang.Override
     public void internetOn() {
         State play = on.getPlay();
+        System.out.println("exit "+ this.getClass().getName() + " state");
         on.setPalyerCurrent(play);
-        play.entry();    }
+    }
 
     @java.lang.Override
     public void internetOff() {
@@ -33,6 +34,7 @@ public class Pause implements State {
 
     @java.lang.Override
     public void downloadAborted() {
+        System.out.println("exit "+ this.getClass().getName() + " state");
         on.setPalyerCurrent(on.getIdlePlayer());
     }
 
@@ -44,8 +46,9 @@ public class Pause implements State {
     @java.lang.Override
     public void errorFixed() {
         State play = on.getPlay();
+        System.out.println("exit "+ this.getClass().getName() + " state");
         on.setPalyerCurrent(play);
-        play.entry();    }
+    }
 
     @java.lang.Override
     public void movieOn() {
@@ -64,23 +67,25 @@ public class Pause implements State {
 
     @java.lang.Override
     public void movieOff() {
+        System.out.println("exit "+ this.getClass().getName() + " state");
         on.setPalyerCurrent(on.getIdlePlayer());
     }
 
     @java.lang.Override
     public void resume() {
         State play = on.getPlay();
+        System.out.println("exit "+ this.getClass().getName() + " state");
         on.setPalyerCurrent(play);
-        play.entry();
     }
 
     @java.lang.Override
     public void downloadFinished() {
+        System.out.println("exit "+ this.getClass().getName() + " state");
         on.setPalyerCurrent(on.getIdlePlayer());
     }
 
     @Override
     public void entry() {
-
+        System.out.println("enter "+ this.getClass().getName() + " state");
     }
 }

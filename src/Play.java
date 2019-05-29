@@ -28,6 +28,7 @@ public class Play implements State {
     public void internetOff() {
         //kill entry thrade
         on.setPalyerCurrent(on.getPause());
+        System.out.println("exit "+ this.getClass().getName() + " state");
         isCurrent = false;
     }
 
@@ -40,6 +41,7 @@ public class Play implements State {
     public void downloadAborted() {
         //kill entry thrade
         on.setPalyerCurrent(on.getIdlePlayer());
+        System.out.println("exit "+ this.getClass().getName() + " state");
         isCurrent = false;
     }
 
@@ -47,6 +49,7 @@ public class Play implements State {
     public void downloadError() {
         //kill entry thrade
         on.setPalyerCurrent(on.getPause());
+        System.out.println("exit "+ this.getClass().getName() + " state");
         isCurrent = false;
     }
 
@@ -69,6 +72,7 @@ public class Play implements State {
     public void holdMovie() {
         //kill entry thrade
         on.setPalyerCurrent(on.getPause());
+        System.out.println("exit "+ this.getClass().getName() + " state");
         isCurrent = false;
     }
 
@@ -76,6 +80,7 @@ public class Play implements State {
     public void movieOff() {
         //kill entry thrade
         on.setPalyerCurrent(on.getIdlePlayer());
+        System.out.println("exit "+ this.getClass().getName() + " state");
         isCurrent = false;
     }
 
@@ -88,11 +93,13 @@ public class Play implements State {
     public void downloadFinished() {
         //kill entry thrade
         on.setPalyerCurrent(on.getIdlePlayer());
+        System.out.println("exit "+ this.getClass().getName() + " state");
         isCurrent = false;
     }
 
     @Override
     public void entry() {
+        System.out.println("enter "+ this.getClass().getName() + " state");
         isCurrent = true;
         playMovie = new Thread(() -> {
             while(isCurrent) { //while this is the current state. Changing the state in On will terminate this thread.

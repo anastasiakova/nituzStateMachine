@@ -52,6 +52,7 @@ public class IdlePlayer implements State {
             on.movieTime = 0;
             State play = on.getPlay();
             on.setPalyerCurrent(play);
+            System.out.println("exit "+ this.getClass().getName() + " state");
             play.entry();
         }
     }
@@ -83,6 +84,6 @@ public class IdlePlayer implements State {
 
     @Override
     public void entry() {
-
+        System.out.println("enter "+ this.getClass().getName() + " state");
     }
 }
