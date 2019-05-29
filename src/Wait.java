@@ -1,4 +1,11 @@
 public class Wait implements State {
+
+    public DownloadProc downloadProc;
+
+    public Wait(DownloadProc downloadProc){
+        this.downloadProc = downloadProc;
+    }
+
     @java.lang.Override
     public void turnOn() {
 
@@ -16,7 +23,8 @@ public class Wait implements State {
 
     @java.lang.Override
     public void internetOff() {
-
+        System.out.println("exit "+ this.getClass().getName() + " state");
+        downloadProc.setDownloadProcCurrent(downloadProc.getDownload());
     }
 
     @java.lang.Override
@@ -67,5 +75,10 @@ public class Wait implements State {
     @java.lang.Override
     public void downloadFinished() {
 
+    }
+
+    @Override
+    public void entry() {
+        System.out.println("enter "+ this.getClass().getName() + " state");
     }
 }

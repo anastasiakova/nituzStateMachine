@@ -1,4 +1,11 @@
 public class Download implements State {
+
+    public DownloadProc downloadProc;
+
+    public Download(DownloadProc downloadProc){
+        this.downloadProc = downloadProc;
+    }
+
     @java.lang.Override
     public void turnOn() {
 
@@ -67,6 +74,11 @@ public class Download implements State {
     @java.lang.Override
     public void downloadFinished() {
 
+    }
+
+    @Override
+    public void entry() {
+        System.out.println("enter "+ this.getClass().getName() + " state");
     }
 
 }
