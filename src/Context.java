@@ -115,6 +115,9 @@ public class Context {
 
     public static void updatePoints(int points){
         Context.points += points;
+        if( Context.points < 0){
+            Context.points = 0;
+        }
     }
 }
 
