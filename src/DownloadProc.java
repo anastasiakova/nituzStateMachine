@@ -20,6 +20,18 @@ public class DownloadProc implements State {
         this.current.entry();
     }
 
+    public State getDownload() {
+        return download;
+    }
+
+    public State getWait() {
+        return wait;
+    }
+
+    public State getRecover() {
+        return recover;
+    }
+
     @java.lang.Override
     public void turnOn() {
         this.entry();
@@ -47,7 +59,9 @@ public class DownloadProc implements State {
 
     @java.lang.Override
     public void downloadAborted() {
-
+        on.setDownloadCurrent(on.getDownloadIdle());
+        Context.updatePoints(-1);
+        System.out.println("exit "+ this.getClass().getName() + " state");
     }
 
     @java.lang.Override
