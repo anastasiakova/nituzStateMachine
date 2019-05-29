@@ -61,6 +61,8 @@ public class DownloadProc implements State {
     public void downloadAborted() {
         on.setDownloadCurrent(on.getDownloadIdle());
         Context.updatePoints(-1);
+        current.downloadAborted();
+        current = download;
         System.out.println("exit "+ this.getClass().getName() + " state");
     }
 
@@ -101,7 +103,10 @@ public class DownloadProc implements State {
 
     @java.lang.Override
     public void downloadFinished() {
-
+        on.setDownloadCurrent(on.getDownloadIdle());
+        Context.updatePoints(1);
+        Context.diskSize -= On.fileSize;
+        System.out.println("exit "+ this.getClass().getName() + " state");
     }
 
     @Override
