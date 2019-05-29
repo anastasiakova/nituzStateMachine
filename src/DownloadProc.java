@@ -59,11 +59,11 @@ public class DownloadProc implements State {
 
     @java.lang.Override
     public void downloadAborted() {
+        System.out.println("exit "+ this.getClass().getName() + " state");
         on.setDownloadCurrent(on.getDownloadIdle());
         Context.updatePoints(-1);
         current.downloadAborted();
         current = download;
-        System.out.println("exit "+ this.getClass().getName() + " state");
     }
 
     @java.lang.Override
