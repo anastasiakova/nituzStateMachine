@@ -89,12 +89,10 @@ public class DownloadIdle implements State {
 
     public void dequeue() {
         if (On.queueSize > 0 ) {
-            System.out.println("queue size: " + On.queueSize);
             if (onState.fileSize > onState.context.diskSize) {
                 onState.setDownloadCurrent(onState.getOutOfDisk());
             } else {
                 On.queueSize--;
-                System.out.println("queue size: " + On.queueSize);
                 onState.setDownloadCurrent(onState.getDownloadProc());
 
             }

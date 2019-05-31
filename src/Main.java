@@ -1,7 +1,7 @@
 public class Main{
     public static void  main(String[] args) {
         Main m = new Main();
-        //m.simpleNoMovie();
+        m.simpleNoMovie();
         //m.simpleWithMovie();
         //m.downloadAndInternetOffAndThanOff();
         //m.downloadAndOff();
@@ -42,18 +42,8 @@ System.out.println("---------------DO TURN ON-----------");
         c.turnOn();
         System.out.println("----------------ADD DOWNLOAD-----------");
         c.fileRequest();
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         System.out.println("----------------ADD DOWNLOAD-----------");
         c.fileRequest();
-        try {
-            Thread.sleep(40000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         c.turnOff();
 
         //System.out.println("----------------ADD DOWNLOAD-----------");
