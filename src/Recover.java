@@ -83,23 +83,16 @@ public class Recover implements State {
     public void entry() {
         System.out.println("enter "+ this.getClass().getName() + " state");
         isErrorFixed = false;
-        Thread thread = new Thread(){
-            public void run()
-            {
-                try {
-                    Thread.sleep(3000);
-                    if(!isErrorFixed && downloadProc.on.context.machineOn == downloadProc.on.context.machineCurrnetMode){
-                        downloadProc.setDownloadProcCurrent(downloadProc.getDownload());
-                        System.out.println("exit "+ downloadProc.getClass().getName() + " state");
-                        downloadProc.on.setDownloadCurrent(downloadProc.on.getDownloadIdle());
-                        Context.updatePoints(-1);
-                    }
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        };
-
-        thread.start();
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        if(!isErrorFixed){
+            downloadProc.setDownloadProcCurrent(downloadProc.getDownload());
+            System.out.println("exit "+ downloadProc.getClass().getName() + " state");
+            downloadProc.on.setDownloadCurrent(downloadProc.on.getDownloadIdle());
+            Context.updatePoints(-1);
+        }
     }
 }

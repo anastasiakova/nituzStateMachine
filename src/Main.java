@@ -1,7 +1,7 @@
 public class Main{
     public static void  main(String[] args) {
         Main m = new Main();
-        m.simpleNoMovie();
+        //m.simpleNoMovie();
         //m.simpleWithMovie();
         //m.downloadAndInternetOffAndThanOff();
         //m.downloadAndOff();
@@ -19,11 +19,11 @@ public class Main{
 
     private void simpleNoMovie(){
         /*Context c = new Context();
-        System.out.println("---------------DO TURN ON-----------");
-        c.turnOn();
-
         System.out.println("----------------DO INTERNET ON-----------");
         c.internetOn();
+
+System.out.println("---------------DO TURN ON-----------");
+        c.turnOn();
         System.out.println("---------------DO TURN ON-----------");
         //c.turnOn();
         System.out.println("----------------ADD DOWNLOAD-----------");
@@ -31,11 +31,11 @@ public class Main{
 
         Context c = new Context();
 
-        System.out.println("---------------DO TURN ON-----------");
-        c.turnOn();
-
         System.out.println("----------------DO INTERNET ON-----------");
         c.internetOn();
+
+System.out.println("---------------DO TURN ON-----------");
+        c.turnOn();
         System.out.println("---------------DO TURN ON-----------");
         c.turnOn();
         c.turnOff();
@@ -61,11 +61,11 @@ public class Main{
 
     private void simpleWithMovie(){
         Context c = new Context();
-        System.out.println("---------------DO TURN ON-----------");
-        c.turnOn();
-
         System.out.println("----------------DO INTERNET ON-----------");
         c.internetOn();
+
+System.out.println("---------------DO TURN ON-----------");
+        c.turnOn();
 
         System.out.println("----------------ADD DOWNLOAD-----------");
         c.fileRequest();
@@ -84,14 +84,17 @@ public class Main{
     }
     private void downloadAndInternetOffAndThanOff(){
         Context c = new Context();
-        System.out.println("---------------DO TURN ON-----------");
-        c.turnOn();
 
         System.out.println("----------------DO INTERNET ON-----------");
         c.internetOn();
 
+        System.out.println("---------------DO TURN ON-----------");
+        c.turnOn();
+
         System.out.println("----------------ADD DOWNLOAD-----------");
         c.fileRequest();
+
+
 
         System.out.println("----------------DO INTERNET OFF-----------");
         c.internetOff();
@@ -108,11 +111,11 @@ public class Main{
 
     private void downloadAndOff(){
         Context c = new Context();
-        System.out.println("---------------DO TURN ON-----------");
-        c.turnOn();
-
         System.out.println("----------------DO INTERNET ON-----------");
         c.internetOn();
+
+System.out.println("---------------DO TURN ON-----------");
+        c.turnOn();
 
         System.out.println("----------------ADD DOWNLOAD-----------");
         c.fileRequest();
@@ -128,11 +131,11 @@ public class Main{
 
     private void downloadAndDownloadAborted(){
         Context c = new Context();
-        System.out.println("---------------DO TURN ON-----------");
-        c.turnOn();
-
         System.out.println("----------------DO INTERNET ON-----------");
         c.internetOn();
+
+System.out.println("---------------DO TURN ON-----------");
+        c.turnOn();
 
         System.out.println("----------------ADD DOWNLOAD-----------");
         c.fileRequest();
@@ -147,11 +150,11 @@ public class Main{
     }
     private void downloadAndDownloaderrorAndFixed(){
         Context c = new Context();
-        System.out.println("---------------DO TURN ON-----------");
-        c.turnOn();
-
         System.out.println("----------------DO INTERNET ON-----------");
         c.internetOn();
+
+        System.out.println("---------------DO TURN ON-----------");
+        c.turnOn();
 
         System.out.println("----------------ADD DOWNLOAD-----------");
         c.fileRequest();
@@ -169,11 +172,11 @@ public class Main{
 
     private void downloadAndDownloaderrorAndTimeOut(){
         Context c = new Context();
-        System.out.println("---------------DO TURN ON-----------");
-        c.turnOn();
-
         System.out.println("----------------DO INTERNET ON-----------");
         c.internetOn();
+
+System.out.println("---------------DO TURN ON-----------");
+        c.turnOn();
 
         System.out.println("----------------ADD DOWNLOAD-----------");
         c.fileRequest();
@@ -189,14 +192,15 @@ public class Main{
 
     private void downloadAndOutOfDiskTimeOut(){
         Context c = new Context();
+
+        System.out.println("----------------DO INTERNET ON-----------");
+        c.internetOn();
+
         System.out.println("---------------DO TURN ON-----------");
         c.turnOn();
 
         System.out.println("---------------SET DISK SIZE = 0-----------");
         c.setDiskSize(0);
-
-        System.out.println("----------------DO INTERNET ON-----------");
-        c.internetOn();
 
         System.out.println("----------------ADD DOWNLOAD-----------");
         c.fileRequest();
@@ -223,11 +227,11 @@ public class Main{
 
     private void downloadPlayAndMovieOff(){
         Context c = new Context();
-        System.out.println("---------------DO TURN ON-----------");
-        c.turnOn();
-
         System.out.println("----------------DO INTERNET ON-----------");
         c.internetOn();
+
+System.out.println("---------------DO TURN ON-----------");
+        c.turnOn();
 
         System.out.println("----------------ADD DOWNLOAD-----------");
         c.fileRequest();
@@ -245,11 +249,11 @@ public class Main{
 
     private void downloadPlayAndHoldMovieAndResume(){
         Context c = new Context();
-        System.out.println("---------------DO TURN ON-----------");
-        c.turnOn();
-
         System.out.println("----------------DO INTERNET ON-----------");
         c.internetOn();
+
+System.out.println("---------------DO TURN ON-----------");
+        c.turnOn();
 
         System.out.println("----------------ADD DOWNLOAD-----------");
         c.fileRequest();
@@ -269,11 +273,11 @@ public class Main{
 
     private void downloadPlayAndHoldMovieAndMovieOff(){
         Context c = new Context();
-        System.out.println("---------------DO TURN ON-----------");
-        c.turnOn();
-
         System.out.println("----------------DO INTERNET ON-----------");
         c.internetOn();
+
+System.out.println("---------------DO TURN ON-----------");
+        c.turnOn();
 
         System.out.println("----------------ADD DOWNLOAD-----------");
         c.fileRequest();
@@ -293,11 +297,11 @@ public class Main{
 
     private void testSpeed(){
         Context c = new Context();
-        System.out.println("---------------DO TURN ON-----------");
-        c.turnOn();
-
         System.out.println("----------------DO INTERNET ON-----------");
         c.internetOn();
+
+System.out.println("---------------DO TURN ON-----------");
+        c.turnOn();
 
         System.out.println("----------------ADD DOWNLOAD 1-----------");
         c.fileRequest();

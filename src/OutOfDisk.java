@@ -81,18 +81,23 @@ public class OutOfDisk implements State {
 
     @Override
     public void entry() {
+        System.out.println("enter "+ this.getClass().getName() + " state");
+
         try {
             Thread.sleep(4000);
             if(onState.fileSize > onState.context.diskSize){
                 On.queueSize--;
                 Context.updatePoints(-1);
+                System.out.println("exit "+ this.getClass().getName() + " state");
                 onState.setDownloadCurrent(onState.getDownloadIdle());
             } else{
                 if(onState.context.internetOnline == onState.context.currentInternetConnection){
+                    System.out.println("exit "+ this.getClass().getName() + " state");
                     onState.setDownloadCurrent(onState.getDownloadProc());
                     On.queueSize--;
                 }
                 else{
+                    System.out.println("exit "+ this.getClass().getName() + " state");
                     onState.setDownloadCurrent(onState.getDownloadIdle());
                 }
             }

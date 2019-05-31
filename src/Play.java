@@ -2,7 +2,6 @@ import java.util.Random;
 
 public class Play implements State {
     On on;
-    Thread playMovie;
     boolean isCurrent;
 
     public Play(On on) {
@@ -97,14 +96,9 @@ public class Play implements State {
     @Override
     public void entry() {
         System.out.println("enter "+ this.getClass().getName() + " state");
-        isCurrent = true;
-        playMovie = new Thread(() -> {
-            while(isCurrent) { //while this is the current state. Changing the state in On will terminate this thread.
-                on.movieTime += 1;
-            }
-        });	//Anonymous class ends here
-
-//Starting anonymous thread
-        playMovie.start();
+        for (int i = 0; i < 5000; i++) {
+            On.movieTime++;
+        }
+        movieOff();
     }
 }
