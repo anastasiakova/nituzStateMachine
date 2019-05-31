@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="nituzStateMachine:jar">
+    <output-path>$PROJECT_DIR$/bin/artifacts/nituzStateMachine_jar</output-path>
+    <root id="archive" name="nituzStateMachine.jar">
+      <element id="module-output" name="nituzStateMachine" />
+    </root>
+  </artifact>
+</component>
