@@ -81,7 +81,7 @@ public class DownloadIdle implements State {
     @Override
     public void entry() {
 
-        System.out.println("exit "+ this.getClass().getName() + " state");
+        System.out.println("enter "+ this.getClass().getName() + " state");
         Random r = new Random();
         onState.fileSize =  r.nextInt((10 - 1) + 1) + 1;
         dequeue();
@@ -90,8 +90,10 @@ public class DownloadIdle implements State {
     public void dequeue() {
         if (On.queueSize > 0 ) {
             if (onState.fileSize > onState.context.diskSize) {
+                System.out.println("exit "+ this.getClass().getName() + " state");
                 onState.setDownloadCurrent(onState.getOutOfDisk());
             } else {
+                System.out.println("exit "+ this.getClass().getName() + " state");
                 On.queueSize--;
                 onState.setDownloadCurrent(onState.getDownloadProc());
 

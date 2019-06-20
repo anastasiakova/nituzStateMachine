@@ -12,8 +12,10 @@ public class Off implements State {
        // if(inOnline) {
          //   on.setAsCurrent();
         //}
-        if(context.currentInternetConnection instanceof InternetOnilne)
+        if(context.currentInternetConnection instanceof InternetOnilne){
+            System.out.println("exit "+ this.getClass().getName() + " state");
             context.setMachineCurrnetModeState(context.getMachineOn());
+        }
         else
             System.out.println("THERE IS NO CONNECTION!!! ");
     }

@@ -27,7 +27,9 @@ public class DownloadRequests implements State {
 
     @java.lang.Override
     public void fileRequest() {
-        On.queueSize++;
+        if(on.context.currentInternetConnection instanceof InternetOnilne){
+            On.queueSize++;
+        }
     }
 
     @java.lang.Override
